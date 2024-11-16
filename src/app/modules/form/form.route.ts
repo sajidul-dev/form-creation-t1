@@ -3,6 +3,6 @@ import { FormController } from "./form.controller";
 
 const router = express.Router();
 
-router.post("/webhook", FormController.getFormInfo);
+router.get("/webhook", FormController.getFormInfo);
 
 export const FormRoutes = router;

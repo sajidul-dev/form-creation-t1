@@ -1,7 +1,7 @@
 import catchAsync from "../../../shared/catchAsyncs";
 
 const getFormInfo = catchAsync(async (req, res, next) => {
-  const { formName, formActive } = req.body;
+  const { formName, formActive } = req.query;
   console.log(formName, formActive);
   res.status(200).json({
     data: { formName: formName, formActive: formActive },
