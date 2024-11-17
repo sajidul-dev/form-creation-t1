@@ -6,7 +6,7 @@ const getFormInfo = catchAsync(async (req, res, next) => {
   const { ...fromdata } = req.body;
   console.log(fromdata, "Request from api");
   res.status(200).json({
-    data: req.body,
+    data: JSON.stringify(fromdata),
     success: true,
     message: "Form created successfully",
   });
