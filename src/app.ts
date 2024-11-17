@@ -90,7 +90,7 @@ app.get("/", (req: Request, res: Response) => {
     // const value = item.value.split(",");
     // item.value = value;
     // }
-    console.log(JSON.parse(item[0]));
+    console.log(item[0]);
   });
   // console.log(answer);
   res.send("Working.....!");
