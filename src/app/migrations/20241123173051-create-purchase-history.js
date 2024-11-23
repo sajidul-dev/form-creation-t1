@@ -30,11 +30,6 @@ module.exports = {
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
       },
-      order_no: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-      },
       purchase_quantity: {
         type: Sequelize.INTEGER,
         allowNull: false,
