@@ -16,7 +16,7 @@ const createForm = async (data: IFormType) => {
     email: "mdsajidulalam1245@gmail.com",
     password: "12345678Aa@",
   };
-  const token = authorization(profile);
+  const token = await authorization(profile);
   let message;
   console.log(formData, "FormData");
   console.log(token, "Token");
@@ -31,6 +31,8 @@ const createForm = async (data: IFormType) => {
       console.log(err);
       message = "Form not created";
     }
+  } else {
+    console.log("Failed to retrieve token.");
   }
   //create form
 

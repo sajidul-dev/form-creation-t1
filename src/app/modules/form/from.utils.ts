@@ -20,18 +20,49 @@ export const getFormObj = (data: IFormType) => {
   return formData;
 };
 
+// export const authorization = async (profile: {
+//   email: string;
+//   password: string;
+// }): Promise<string | null> => {
+//   let token = null;
+//   try {
+//     await axios
+//       .post(
+//         `https://api.123formbuilder.com/v2/token?email=${profile.email}&password=${profile.password}`
+//       )
+//       .then((res) => {
+//         console.log(res.data, "res");
+//         token = res.data.token;
+//       });
+//   } catch (err) {
+//     console.log(err);
+//   }
+//   return token;
+// };
+
 export const authorization = async (profile: {
   email: string;
   password: string;
 }): Promise<string | null> => {
-  let token = null;
-  axios
-    .post(
-      `https://api.123formbuilder.com/v2/token?email=${profile.email}&password=${profile.password}`
-    )
-    .then((res) => {
-      console.log(res.data, "res");
-      token = res.data.token;
-    });
-  return token;
+  try {
+    const response = await axios.post(
+      "https://api.123formbuilder.com/v2/token",
+      null,
+      {
+        params: {
+          email: profile.email,
+          password: profile.password,
+        },
+      }
+    );
+
+    return response.data?.token || null;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error("Axios error:", error.response?.data || error.message);
+    } else {
+      console.error("Unknown error:", error);
+    }
+    return null;
+  }
 };
