@@ -3,10 +3,13 @@ import catchAsync from "../../../shared/catchAsyncs";
 const getFormInfo = catchAsync(async (req, res, next) => {
   // const { formName, formActive } = req.body;
   // console.log(formName, formActive);
-  const { ...fromdata } = req.body;
-  console.log(JSON.stringify(fromdata), "Request from api");
+  const { ...data } = req.body;
+  console.log(JSON.stringify(data), "Request from api");
+
+  const formData = JSON.stringify(data);
+
   res.status(200).json({
-    data: JSON.stringify(fromdata),
+    data: JSON.stringify(formData),
     success: true,
     message: "Form created successfully",
   });

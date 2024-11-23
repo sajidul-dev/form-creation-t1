@@ -1,4 +1,17 @@
 {
+  "include": [
+    "src",
+    "migrations/20241123134216-create-products.js",
+    "models/20241123141819-create-purchase-history.js",
+    "nn/20241123142022-create-product.js",
+    "nn/20241123142005-create-user.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts"
+  ],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
     /* Projects */

@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
 import app from "./app";
 import config from "./config";
+import sequelize from "./lib/db";
 
 async function main() {
   try {
-    await mongoose.connect("mongodb://localhost:27017/test");
+    await sequelize.authenticate();
     console.log("Database is connected");
     app.listen(config.port, () => {
       console.log(`Example app listening on port ${config.port}`);
