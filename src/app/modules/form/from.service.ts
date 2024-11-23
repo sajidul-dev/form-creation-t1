@@ -17,17 +17,23 @@ const createForm = async (data: IFormType) => {
     password: "12345678Aa@",
   };
   const token = authorization(profile);
-
+  let message;
+  console.log(formData, "FormData");
+  console.log(token, "Token");
   if (await token) {
     try {
       axios.post(
-        `https://api.123formbuilder.com/v2/forms?JWT=${await token}&name=${
-          formData.formName
-        }`
+        `https://api.123formbuilder.com/v2/forms?JWT=${token}&name=${formData.formName}`
       );
+      message = "Form created";
     } catch (err) {
       console.log(err);
+      message = "Form not created";
     }
   }
   //create form
+
+  return message;
 };
+
+export const FormService = { createForm };
