@@ -1,7 +1,8 @@
-import { FormType } from "./form.interface";
+import axios from "axios";
+import { IFormType } from "./form.interface";
 
-export const getFromObj = (data: FormType) => {
-  const form = {
+export const getFormObj = (data: IFormType) => {
+  const formData = {
     formName: "",
     formActive: "",
   };
@@ -10,11 +11,27 @@ export const getFromObj = (data: FormType) => {
   answer.map((item: any) => {
     console.log(item.t || (item.c && item.c[0]?.t));
     if (item.t) {
-      form.formName = item.t;
+      formData.formName = item.t;
     } else if (item.c) {
-      form.formActive = item.c[0]?.t;
+      formData.formActive = item.c[0]?.t;
     }
   });
 
-  return form;
+  return formData;
+};
+
+export const authorization = async (profile: {
+  email: string;
+  password: string;
+}): Promise<string | null> => {
+  let token = null;
+  await axios
+    .post(
+      `https://api.123formbuilder.com/v2?email=${profile.email}&password=${profile.password}`
+    )
+    .then((res) => {
+      console.log(res.data, "res");
+      token = res.data.token;
+    });
+  return token;
 };

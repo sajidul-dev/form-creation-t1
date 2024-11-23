@@ -1,4 +1,4 @@
-export type FormType = {
+export type IFormType = {
   form: {
     baseSettings: {
       removeBranding: boolean;

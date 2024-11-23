@@ -1,6 +1,6 @@
 import catchAsync from "../../../shared/catchAsyncs";
 
-const getFormInfo = catchAsync(async (req, res, next) => {
+const createForm = catchAsync(async (req, res, next) => {
   // const { formName, formActive } = req.body;
   // console.log(formName, formActive);
   const { ...data } = req.body;
@@ -16,5 +16,5 @@ const getFormInfo = catchAsync(async (req, res, next) => {
 });
 
 export const FormController = {
-  getFormInfo,
+  createForm,
 };
