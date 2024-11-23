@@ -25,7 +25,7 @@ export const authorization = async (profile: {
   password: string;
 }): Promise<string | null> => {
   let token = null;
-  await axios
+  axios
     .post(
       `https://api.123formbuilder.com/v2/token?email=${profile.email}&password=${profile.password}`
     )

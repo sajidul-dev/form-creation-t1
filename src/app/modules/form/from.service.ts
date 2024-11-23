@@ -20,7 +20,8 @@ const createForm = async (data: IFormType) => {
   let message;
   console.log(formData, "FormData");
   console.log(token, "Token");
-  if (await token) {
+  if (token) {
+    console.log(token, "Token inside if block");
     try {
       axios.post(
         `https://api.123formbuilder.com/v2/forms?JWT=${token}&name=${formData.formName}`
