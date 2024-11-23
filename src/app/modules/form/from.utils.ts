@@ -27,7 +27,7 @@ export const authorization = async (profile: {
   let token = null;
   await axios
     .post(
-      `https://api.123formbuilder.com/v2?email=${profile.email}&password=${profile.password}`
+      `https://api.123formbuilder.com/v2/token?email=${profile.email}&password=${profile.password}`
     )
     .then((res) => {
       console.log(res.data, "res");
