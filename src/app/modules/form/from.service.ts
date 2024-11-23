@@ -9,6 +9,7 @@ const createForm = async (data: IFormType) => {
     email: config.formBuilder.email,
     password: config.formBuilder.password,
   };
+  console.log(profile, "Profile");
   const token = await authorization(profile);
   let message;
 
