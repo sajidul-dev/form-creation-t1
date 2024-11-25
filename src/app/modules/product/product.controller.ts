@@ -19,4 +19,17 @@ const createProduct: RequestHandler = catchAsync(
   }
 );
 
-export const ProductController = { createProduct };
+const getAllProducts: RequestHandler = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const products = await ProductService.getAllProducts();
+    sendResponse(res, {
+      statusCode: StatusCodes.OK,
+      success: true,
+      message: "Products retrieved successfully!",
+      data: products,
+    });
+    next();
+  }
+);
+
+export const ProductController = { createProduct, getAllProducts };

@@ -12,4 +12,13 @@ const createProduct = async (product: IProduct) => {
   return [result, created];
 };
 
-export const ProductService = { createProduct };
+const getAllProducts = async () => {
+  const products = await Product.findAll({
+    where: {},
+    attributes: ["product_id", "product_code", "product_name", "product_price"],
+    order: [["created_at", "DESC"]],
+  });
+  return products;
+};
+
+export const ProductService = { createProduct, getAllProducts };

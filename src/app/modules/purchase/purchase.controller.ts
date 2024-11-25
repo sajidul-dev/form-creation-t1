@@ -18,4 +18,17 @@ const createPurchase = catchAsync(
   }
 );
 
-export const PurchaseController = { createPurchase };
+const getAllPurchases = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const purchases = await PurchaseService.getAllPurchases();
+    sendResponse(res, {
+      statusCode: StatusCodes.OK,
+      success: true,
+      message: "Purchases retrieved successfully!",
+      data: purchases,
+    });
+    next();
+  }
+);
+
+export const PurchaseController = { createPurchase, getAllPurchases };

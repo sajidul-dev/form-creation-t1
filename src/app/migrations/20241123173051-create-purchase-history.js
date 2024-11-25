@@ -10,6 +10,11 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
+      order_no: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        unique: true,
+      },
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,

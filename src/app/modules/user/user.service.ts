@@ -9,4 +9,14 @@ const createUser = async (user: IUser) => {
   return [result, created];
 };
 
-export const UserService = { createUser };
+const getUsers = async () => {
+  const users = await User.findAll({
+    where: {},
+    attributes: ["user_id", "name", "phone"],
+    order: [["created_at", "DESC"]],
+  });
+
+  return users;
+};
+
+export const UserService = { createUser, getUsers };

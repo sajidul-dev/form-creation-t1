@@ -11,6 +11,10 @@ const PurchaseHistory = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
+    order_no: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
