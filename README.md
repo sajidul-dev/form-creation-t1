@@ -80,7 +80,7 @@ Ensure the following tools are installed on your system:
    # Server Configuration
    NODE_ENV=development
    PORT=5000
-   FORM_BUILDER_EMAIL=mdsajidulalam1245@gmail.com
+   FORM_BUILDER_EMAIL=sajiul150764@gmail.com
    FORM_BUILDER_PASSWORD=12345678Aa@
    DB_NAME=E-commerce
    DB_USER=root
